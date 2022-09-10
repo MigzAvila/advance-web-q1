@@ -39,13 +39,11 @@ func main() {
 		config: cfg,
 		logger: logger,
 	}
-	//create out new servemux
-	mux := app.routes()
 
 	//create our http server
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.port),
-		Handler:      mux,
+		Handler:      app.routes(), // point to our custom router in routes
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,
