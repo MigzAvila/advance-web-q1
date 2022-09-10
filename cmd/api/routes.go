@@ -1,4 +1,4 @@
-// Filename cmd/api/routes
+// Filename cmd/api/routes.go
 
 package main
 

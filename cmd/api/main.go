@@ -40,8 +40,7 @@ func main() {
 		logger: logger,
 	}
 	//create out new servemux
-	mux := http.NewServeMux()
-	mux.HandleFunc("/v1/healthcheck", app.healthcheckHandler)
+	mux := app.routes()
 
 	//create our http server
 	srv := &http.Server{
