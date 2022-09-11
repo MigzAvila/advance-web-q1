@@ -32,9 +32,10 @@ func main() {
 	flag.StringVar(&cfg.env, "env", "dev", "dev, stg, prd")
 	flag.Parse()
 
-	//create a logger
+	//create a logger ~ use := for undeclared var
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
-	//create install of out app
+
+	// Create an instance of our application struct
 	app := &application{
 		config: cfg,
 		logger: logger,
@@ -43,7 +44,7 @@ func main() {
 	//create our http server
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.port),
-		Handler:      app.routes(), // point to our custom router in routes
+		Handler:      app.routes(), // point to our custom router in routes.go
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,

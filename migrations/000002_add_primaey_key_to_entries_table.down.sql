@@ -1,0 +1,2 @@
+ALTER TABLE entries
+DROP COLUMN IF EXISTS id;
